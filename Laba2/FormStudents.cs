@@ -54,6 +54,7 @@ namespace Laba2
                     );
             }
             UpdateChart();
+            LoadGroups();
         }
         private void btnShowHistogram_Click(object sender, EventArgs e)
         {
@@ -117,6 +118,7 @@ namespace Laba2
         {
             FormGroups windowsFormGroups = new FormGroups();
             windowsFormGroups.ShowDialog();
+            LoadGroups();
         }
     }
 }
