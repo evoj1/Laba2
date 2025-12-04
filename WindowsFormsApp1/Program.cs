@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BusinessLogic;
 
-namespace Laba2
+namespace WindowsFormsApp1
 {
     internal static class Program
     {
@@ -17,7 +16,7 @@ namespace Laba2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormStudents());
+            Application.Run(new Form1());
         }
     }
 }

@@ -13,10 +13,10 @@ using Ninject;
 
 namespace Laba2
 {
-    public partial class Form1 : Form
+    public partial class FormStudents : Form
     {
         private readonly Logic logic;
-        public Form1()
+        public FormStudents()
         {
             InitializeComponent();
             IKernel kernel = new StandardKernel(new SimpleConfigModule());
@@ -111,6 +111,12 @@ namespace Laba2
             {
                 MessageBox.Show("Ошибка");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormGroups windowsFormGroups = new FormGroups();
+            windowsFormGroups.ShowDialog();
         }
     }
 }

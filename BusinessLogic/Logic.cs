@@ -30,6 +30,15 @@ namespace BusinessLogic
             _studentRepository.Create(student);
             DataChanged?.Invoke();
         }
+        public void AddGroup(string name)
+        {
+            if (string.IsNullOrEmpty(name)) 
+                throw new ArgumentException("Введите название группы");
+
+            var group = new Groups(name);
+            _groupRepository.Create(group);
+            DataChanged?.Invoke();
+        }
         public bool RemoveStudent(int id)
         {
             var student = _studentRepository.ReadById(id);
@@ -48,6 +57,15 @@ namespace BusinessLogic
                 allGroups.Add($"{group.Id} {group.Name}");
             }
             return allGroups;
+        }
+        public bool RemoveGroup(int id)
+        {
+            var group = _groupRepository.ReadById(id);
+            if (group == null)
+                return false;
+            _groupRepository.Delete(group);
+            DataChanged?.Invoke();
+            return true;
         }
 
         public List<string> PrintAllStudentsWithGroupNames()

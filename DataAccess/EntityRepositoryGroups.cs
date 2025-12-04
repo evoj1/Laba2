@@ -10,24 +10,33 @@ namespace DataAccess
 {
     public class EntityRepositoryGroups<T> : IRepository<T> where T : class, IDomainObject, new()
     {
-        public void Create(T item)
+        private readonly DataContext _context;
+        private readonly DbSet<T> _dbSet;
+        public EntityRepositoryGroups(DataContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+            _dbSet = _context.Set<T>();
+        }
+        public void Create(T obj)
+        {
+            _dbSet.Add(obj);
+            _context.SaveChanges();
         }
 
-        public void Delete(T item)
+        public void Delete(T obj)
         {
-            throw new NotImplementedException();
+            _dbSet.Remove(obj);
+            _context.SaveChanges();
         }
 
         public IEnumerable<T> ReadAll()
         {
-            throw new NotImplementedException();
+            return _dbSet.ToList();
         }
 
         public T ReadById(int id)
         {
-            throw new NotImplementedException();
+            return _dbSet.Find(id);
         }
     }
 }

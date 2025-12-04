@@ -10,9 +10,8 @@ namespace Model
     {
         public Groups() { }
 
-        public Groups(int id, string name)
+        public Groups(string name)
         {
-            Id = id;
             Name = name;
         }
 
